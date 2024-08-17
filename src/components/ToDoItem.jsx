@@ -20,13 +20,13 @@ const ToDoItem = (props) => {
       {props.todo.completed ? '✔' : 'Complete'}
     </button>
     <button
-      onClick={() => props.handleEditTodo(props.todo)}
+      onClick={() => props.handleEdit(props.todo)}
       className="mx-2 p-1 bg-blue-500 text-white rounded-md"
     >
       Edit
     </button>
     <button
-      onClick={() => props.handleDeleteTodo(props.todo.id)}
+      onClick={() => props.handleDelete(props.todo.id)}
       className="mx-2 p-1 bg-red-500 text-white rounded-md"
     >
       Delete

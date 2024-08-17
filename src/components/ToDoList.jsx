@@ -11,7 +11,7 @@ const ToDoList = () => {
     setNewTodo(e.target.value);
   };
 
-  const handleAddTodo = () => {
+  const handleAdd = () => {
     if (newTodo.trim()) {
       setTodos([...todos, { id: Date.now(), text: newTodo, completed: false }]);
       setNewTodo('');
@@ -26,11 +26,11 @@ const ToDoList = () => {
     );
   };
 
-  const handleDeleteTodo = (id) => {
+  const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const handleEditTodo = (todo) => {
+  const handleEdit = (todo) => {
     setIsEditing(true);
     setCurrentTodo({ ...todo });
   };
@@ -39,7 +39,7 @@ const ToDoList = () => {
     setCurrentTodo({ ...currentTodo, text: e.target.value });
   };
 
-  const handleUpdateTodo = () => {
+  const handleUpdate = () => {
     setTodos(
       todos.map((todo) =>
         todo.id === currentTodo.id ? { ...todo, text: currentTodo.text } : todo
@@ -61,7 +61,7 @@ const ToDoList = () => {
             className="w-full p-2 border border-gray-300 rounded-md mb-2"
           />
           <button
-            onClick={handleUpdateTodo}
+            onClick={handleUpdate}
             className="w-full bg-blue-500 text-white p-2 rounded-md"
           >
             Update
@@ -77,7 +77,7 @@ const ToDoList = () => {
             placeholder="Add a new to-do"
           />
           <button
-            onClick={handleAddTodo}
+            onClick={handleAdd}
             className="w-full bg-green-500 text-white p-2 rounded-md"
           >
             Add
@@ -86,7 +86,7 @@ const ToDoList = () => {
       )}
       <ul>
         {todos.map((todo) => (
-         <ToDoItem todo = {todo} handleToggleComplete={handleToggleComplete} handleEditTodo={handleEditTodo}  handleDeleteTodo={handleDeleteTodo}/>
+         <ToDoItem todo = {todo} handleToggleComplete={handleToggleComplete} handleEdit={handleEdit}  handleDelete={handleDelete}/>
         ))}
       </ul>
     </div>
